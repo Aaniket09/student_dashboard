@@ -1,0 +1,47 @@
+.appBar {
+    border-radius: 15;
+    margin: 30px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: rgb(9, 93, 248);
+}
+
+.brandContainer {
+    display: flex;
+    align-items: center;
+  }
+
+.heading {
+    color: #e4efe7;
+    text-decoration: none;
+}
+
+.toolbar {
+    display: flex;
+    justify-content: flex-end;
+    width: 400px;
+  }
+
+  .profile {
+    display: flex;
+    justify-content: space-between;
+    width: 400px;
+  }
+  .userName {
+    color: #e4efe7;
+    display: flex;
+    align-items: center;
+  }
+
+  
+  .signInButton {
+      background-color: #e4efe7;
+      color:rgb(9, 93, 248);
+  }
+
+  .signInButton:hover {
+      background-color: gray;
+      color: white;
+  }

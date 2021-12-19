@@ -10,10 +10,10 @@ export const getCourses = async (req, res) => {
     }
 };
 
-export const getProfile = async (req, res) => {};
+
 
 export const enrollCourse = async (req, res) => {};
 
-export const updateProfile = async (req, res) => {};
+
 
 

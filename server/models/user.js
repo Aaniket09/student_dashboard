@@ -9,6 +9,7 @@ const userShema = mongoose.Schema({
     dob: { type: Date },
     gender: { type: Number },
     interests: { type: String },
+    courses: { type: Array },
 });
 
 const User = mongoose.model("User", userShema);
