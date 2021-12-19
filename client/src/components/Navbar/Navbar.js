@@ -39,11 +39,12 @@ const Navbar = () => {
             <Typography component={Link} to="/" className={classes.heading} variant="h4" align="center">Student Dashboard</Typography>
           </div>
             
-          <Toolbar className={classes.toolbar}>
+          <Toolbar sx={{ display: "flex", justifyContent: "flex-end" }} className={classes.toolbar}>
             {user ? (
                 <div className={classes.profile}>
                     <Typography className={classes.userName} variant="h6">{user.result.name}</Typography>
-                   
+
+                   <Button component={NavLink} to="/courses" variant='contained' className={classes.courses}>Courses</Button>
                     <Button variant="contained" className={classes.logout}  onClick={logout}>Logout</Button>
                 </div>
             ) : (

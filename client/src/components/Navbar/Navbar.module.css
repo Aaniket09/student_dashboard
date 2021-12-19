@@ -10,6 +10,7 @@
 
 .brandContainer {
     display: flex;
+    justify-content: flex-start;
     align-items: center;
   }
 
@@ -21,13 +22,13 @@
 .toolbar {
     display: flex;
     justify-content: flex-end;
-    width: 400px;
+    width: 500px;
   }
 
   .profile {
     display: flex;
     justify-content: space-between;
-    width: 400px;
+    width: 500px;
   }
   .userName {
     color: #e4efe7;
@@ -35,13 +36,13 @@
     align-items: center;
   }
 
-  
-  .signInButton {
+  .signInButton, .logout, .courses {
       background-color: #e4efe7;
       color:rgb(9, 93, 248);
   }
 
-  .signInButton:hover {
+  .signInButton:hover, .logout:hover, .courses:hover {
       background-color: gray;
       color: white;
   }
+

@@ -2,6 +2,7 @@
 import React from "react";
 import { Route, Routes, Navigate } from "react-router-dom"
 import Auth from "./components/Auth/Auth";
+import Courses from "./components/Courses/Courses";
 import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
 
@@ -13,6 +14,7 @@ const App = () => {
       <Routes>
         <Route exact path="/" element={<Navigate to="/profile" />} />
         <Route exact path="/profile" element={<Profile />} />
+        <Route exact path="/courses" element={<Courses />} />
         <Route exact path="/auth" element={!user ? <Auth /> : <Navigate to="/" />} />
       </Routes>
     </>

@@ -19,6 +19,7 @@ API.interceptors.request.use((req) => {
 //   API.patch(`/posts/${id}`, updatedPost);
 // export const deletePost = (id) => API.delete(`/posts/${id}`);
 // export const likePost = (id) => API.patch(`/posts/${id}/likePost`);
+export const fetchCourses = () => API.get("/courses");
 
 export const fetchProfile = (id) => API.get(`/profile/${id}`);
 
