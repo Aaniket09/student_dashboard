@@ -20,7 +20,7 @@ const Profile = () => {
 
     useEffect(() => {
         dispatch(getProfile(id));
-    }, [id, dispatch, profile.courses]);
+    }, [id, dispatch]);
 
     if (!user?.result?.name) {
         return (
@@ -60,7 +60,7 @@ const Profile = () => {
                     aria-describedby="modal-modal-description"
                 >
                     <Box>
-                    <ProfileForm close={handleClose} />
+                    <ProfileForm user={user} close={handleClose} />
                     </Box>
                 </Modal>
                 <h4>Name: {profile.name}</h4>

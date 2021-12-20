@@ -1,4 +1,4 @@
-import { FETCH_PROFILE } from "../constants/actionTypes";
+import { FETCH_PROFILE, UPDATE_PROFILE } from "../constants/actionTypes";
 import * as api from "../api/index.js";
 
 export const getProfile = (id) => async (dispatch) => {
@@ -9,4 +9,14 @@ export const getProfile = (id) => async (dispatch) => {
     } catch (error) {
         console.log(error.message);
     }   
-}
+};
+
+export const editProfile = (details, id) => async (dispatch) => {
+    try {
+        const { data } = await api.updateProfile(details, id);
+
+        dispatch({ type: UPDATE_PROFILE, payload: data });
+    } catch (error) {
+        console.log(error.message);
+    }
+};

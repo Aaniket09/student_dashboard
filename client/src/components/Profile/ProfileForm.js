@@ -1,8 +1,13 @@
-import { Box, Button, TextField, Typography } from '@mui/material';
-import React from 'react';
+import { Box, Button, FormControl, FormControlLabel, FormLabel, Radio, RadioGroup, TextField, Typography } from '@mui/material';
+import DesktopDatePicker from "@mui/lab/DesktopDatePicker";
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { editProfile } from '../../actions/profile';
 
 const style = {
     position: "absolute",
+    display: "flex",
+    flexDirection: "column",
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
@@ -14,43 +19,64 @@ const style = {
     p: 4,
   };
 
-const ProfileForm = ({ close }) => {
+  const initialProfile = {
+      gender: '',
+      interests: '',
+      date: '',
+  };
+
+const ProfileForm = ({ close, user }) => {
+    const [profileDetails, setProfileDetails] = useState(initialProfile);
+    const dispatch = useDispatch();
+    const id = user?.result?._id;
+
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+
+        setProfileDetails({...profileDetails, [name]: value});
+    }
+
     const handleSave = () => {
-       // dispatch(editAboutMe(input));
+        dispatch(editProfile(profileDetails, id));
     
         close();
       };
 
     return (
         <Box sx={style}>
-      <Typography variant="h5" sx={{ mb: 2 }}>
-        My Story :
+      <Typography variant="h5" sx={{ mb: 3 }}>
+        My Profile :
       </Typography>
+      <DesktopDatePicker
+        label="Date of Birth"
+        minDate={new Date("1980-01-01")}
+        name="dob"
+        value={profileDetails.date}
+        onChange={(newValue) => {
+            setProfileDetails({...profileDetails, date: `${newValue.getDate()}-${newValue.getMonth()}-${newValue.getFullYear()}`})
+        }}
+        renderInput={(params) => <TextField sx={{mb: 2, width: 250}} {...params} />}
+         />
+      <FormControl component="fieldset">
+      <FormLabel component="legend">Gender</FormLabel>
+      <RadioGroup row aria-label="gender" name="gender" onChange={handleChange} value={profileDetails.gender}>
+        <FormControlLabel value="Female" control={<Radio />} label="Female" />
+        <FormControlLabel value="Male" control={<Radio />} label="Male" />
+      </RadioGroup>
+    </FormControl>
       <TextField
         id="outlined-multiline-static"
-        label="Header"
-        multiline
-        rows={2}
-        sx={{ width: 600, mb: 2 }}
-      />
-      <br />
-      <TextField
-        id="outlined-multiline-static"
-        label="Any Quote"
-        multiline
-        rows={1}
-        sx={{ width: 600, mb: 2 }}
-      />
-      <br />
-      <TextField
-        id="outlined-multiline-static"
-        label="Detail"
+        name="interests"
+        label="Interests"
         multiline
         rows={4}
-        sx={{ width: 600, mb: 3 }}
+        sx={{ width: 600, mb: 3, mt: 2 }}
+        onChange={handleChange}
+        value={profileDetails.interests}
       />
       <br />
-      <Button variant="contained" onClick={handleSave}>
+      <Button sx={{width: "12%"}} variant="contained" onClick={handleSave}>
         save
       </Button>
     </Box>

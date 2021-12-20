@@ -23,6 +23,7 @@ export const fetchCourses = () => API.get("/courses");
 export const enrollCourse = (details) => API.patch("/courses/enroll", details);
 
 export const fetchProfile = (id) => API.get(`/profile/${id}`);
+export const updateProfile = (details, id) => API.patch(`/profile/${id}/update`, details);
 
 export const signin = (formData) => API.post("/users/signin", formData);
 export const signup = (formData) => API.post("/users/signup", formData);

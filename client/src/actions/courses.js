@@ -11,10 +11,11 @@ export const getCourses = () => async (dispatch) => {
     }   
 };
 
-export const enrollCourse = (details) => async (dispatch) => {
+export const enrollCourse = (details, navigate) => async (dispatch) => {
     try {
         const { data } = await api.enrollCourse(details);
         dispatch({ type: ENROLL_COURSE, payload: data });
+        navigate('/');
     } catch (error) {
         console.log(error.message);
         console.log("Heeloo")

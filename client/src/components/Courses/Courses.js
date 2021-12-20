@@ -25,8 +25,7 @@ const Courses = () => {
             courseName: course.courseName, 
             userId: user?.result?._id, 
             userName: user?.result?.name}
-            navigate('/');
-            dispatch(enrollCourse(courseDetails));
+            dispatch(enrollCourse(courseDetails,  navigate));
     }
 
     return (

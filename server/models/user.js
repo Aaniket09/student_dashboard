@@ -6,8 +6,8 @@ const userShema = mongoose.Schema({
     email: { type: String },
     password: { type: String },
     id: { type: String },
-    dob: { type: Date },
-    gender: { type: Number },
+    dob: { type: String },
+    gender: { type: String },
     interests: { type: String },
     courses: { type: Array },
 });
