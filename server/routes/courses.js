@@ -6,6 +6,6 @@ import express from "express";
 const router = express.Router();
 
 router.get('/', auth, getCourses);
-router.post('/enroll', auth, enrollCourse);
+router.patch('/enroll', auth, enrollCourse);
 
 export default router;
