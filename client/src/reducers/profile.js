@@ -6,7 +6,9 @@ const profileReducer = (profile = [], action) => {
         case FETCH_PROFILE:
             return action.payload;
         case UPDATE_PROFILE:
-            return action.payload;
+            localStorage.setItem('profile', JSON.stringify({ ...action.payload }));
+
+            return action.payload.result;
 
         default:
             return profile;

@@ -42,7 +42,7 @@ const Navbar = () => {
           <Toolbar sx={{ display: "flex", justifyContent: "flex-end" }} className={classes.toolbar}>
             {user ? (
                 <div className={classes.profile}>
-                    <Typography className={classes.userName} variant="h6">{user.result.name}</Typography>
+                    <Typography className={classes.userName} variant="h6">{user.result.email}</Typography>
 
                    <Button sx={{color: "rgb(9, 93, 248)", backgroundColor: "#e4efe7"}} component={NavLink} to="/courses" variant='contained' className={classes.courses}>Courses</Button>
                     <Button sx={{color: "rgb(9, 93, 248)", backgroundColor: "#e4efe7"}} variant="contained" className={classes.logout}  onClick={logout}>Logout</Button>

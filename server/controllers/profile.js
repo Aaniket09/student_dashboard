@@ -12,9 +12,9 @@ export const getProfile = async (req, res) => {
 
 export const updateProfile = async (req, res) => {
     const { id: _id } = req.params;
-    const { interests, gender, date } = req.body;
+    const { interests, gender, date, name } = req.body;
     try {
-        const updatedProfile = await User.findByIdAndUpdate(_id, {dob: date, gender, interests}, {new: true});
+        const updatedProfile = await User.findByIdAndUpdate(_id, {dob: date, gender, interests, name}, {new: true});
         console.log(updatedProfile);
         res.status(200).json(updatedProfile);
     } catch (err) {

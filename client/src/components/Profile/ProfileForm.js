@@ -19,13 +19,14 @@ const style = {
     p: 4,
   };
 
+  
+  const ProfileForm = ({ close, user }) => {
   const initialProfile = {
+      name: user?.result?.name,
       gender: '',
       interests: '',
       date: '',
   };
-
-const ProfileForm = ({ close, user }) => {
     const [profileDetails, setProfileDetails] = useState(initialProfile);
     const dispatch = useDispatch();
     const id = user?.result?._id;
@@ -38,7 +39,7 @@ const ProfileForm = ({ close, user }) => {
     }
 
     const handleSave = () => {
-        dispatch(editProfile(profileDetails, id));
+        dispatch(editProfile(profileDetails, id, user));
     
         close();
       };
@@ -48,6 +49,14 @@ const ProfileForm = ({ close, user }) => {
       <Typography variant="h5" sx={{ mb: 3 }}>
         My Profile :
       </Typography>
+      <TextField
+        id="outlined-multiline-static"
+        name="name"
+        label="Name"
+        sx={{ width: 300, mb: 3, mt: 2 }}
+        onChange={handleChange}
+        value={profileDetails.name}
+      />
       <DesktopDatePicker
         label="Date of Birth"
         minDate={new Date("1980-01-01")}

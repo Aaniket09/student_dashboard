@@ -11,11 +11,11 @@ export const getProfile = (id) => async (dispatch) => {
     }   
 };
 
-export const editProfile = (details, id) => async (dispatch) => {
+export const editProfile = (details, id, user) => async (dispatch) => {
     try {
         const { data } = await api.updateProfile(details, id);
 
-        dispatch({ type: UPDATE_PROFILE, payload: data });
+        dispatch({ type: UPDATE_PROFILE, payload: {result: {...data}, token: user.token} });
     } catch (error) {
         console.log(error.message);
     }

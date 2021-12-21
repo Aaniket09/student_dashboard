@@ -22,13 +22,13 @@
 .toolbar {
     display: flex;
     justify-content: flex-end;
-    width: 500px;
+    width: 600px;
   }
 
   .profile {
     display: flex;
     justify-content: space-between;
-    width: 500px;
+    width: 600px;
   }
   .userName {
     color: #e4efe7;

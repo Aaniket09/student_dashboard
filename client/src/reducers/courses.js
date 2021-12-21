@@ -6,6 +6,7 @@ const coursesReducer = (courses = [], action) => {
             return action.payload;
         
         case ENROLL_COURSE:
+
             return courses.map((course) => course._id === action.payload._id ? action.payload : course);
 
         default:
